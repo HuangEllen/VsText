@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas demo</title>
+    <style>
+    #myCanvas{
+        border: 1px solid green;
+    }
+    </style>
+</head>
+<body>
+    <!-- 預設值是300*150 (圖紙準備)-->
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    
+
+</body>
+
+
+<script>
+    var canvas = document.querySelector('#myCanvas'),//抓取檔案
+        context = canvas.getContext('2d');//canvas.getContext=繪製方法
+    
+        //顏色先執行
+        context.fillStyle='green';
+        context.strokeStyle='red';
+        //陰影效果
+        context.shadowOffestX = 5;
+        context.shadowOffsetY = 3;
+        context.shadowOffBlur = 10;//模糊程度
+        context.shadowColor = 'silver';
+        //後開始繪製矩形
+        context.fillRect(100,50,200,90);//實心
+        context.strokeRect(100,150,200,90);//線條
+        context.clearRect(150,70,100,50);//清除(不是中空)
+
+
+
+</script>
+</html>

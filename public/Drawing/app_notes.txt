@@ -1,0 +1,8 @@
+1. canvas
+2. FileReader 
+3. WebSocket
+4. offline
+5. 將圖儲存在client  localStorage indexedDB
+6. 將圖儲存到server  fetch
+判斷連線還是離線
+navigator.onLine

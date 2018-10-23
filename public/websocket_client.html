@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML5 websocket API</title>
+</head>
+<body>
+    <input type="text" id="text1" placeholder="say something....">
+    <!-- 啟動的動作 -->
+    <input type="button" value="Start" name="" id="button1">
+    <!-- 顯示結果的地方 -->
+    <div id="div1"></div>
+
+    <script>
+    var btn = document.querySelector('#button1');
+    var myDiv = document.querySelector('#div1');
+    txt = document.querySelector('#text1');
+
+    btn.addEventListener('click',function(){
+        //myDiv.innerHTML = 'click';
+
+        //建立WebSocket物件，會連線到Socket Server
+        //var host = 'wss://echo.websocket.org';//WebSocket Server
+        var host = 'ws://localhost:8080';
+        //var host = 'ws://192.168.24.194:8080';(設定自己的IP位置,別人連線時可以顯示書別人的訊息)
+        var socket = new WebSocket(host);//建立WebSocket並連線
+
+        socket.addEventListener('open',function(){//open事件
+            //myDiv.innerHTML+='連線成功<br>';
+
+            //發送訊息給Socket Server
+            //socket.send('Hello self WebSocket!!');
+            socket.send(txt.value);
+        })
+            //接受SocketServer回傳的結果
+            socket.addEventListener('message',function(evt){//message事件
+                //evt.data會得到Server回傳資料
+                myDiv.innerHTML+=evt.data+'<br>';
+                //關閉連線
+                //socket.close();
+            })
+            socket.addEventListener('close',function(){
+                myDiv.innerHTML+='連線關閉<br>';
+            })
+
+    })
+    
+    </script>
+
+
+</body>
+</html>

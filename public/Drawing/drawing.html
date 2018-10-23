@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="drawing.css">
+</head>
+<body>
+    <div>
+         <label>線條顏色：</label><input type="color" id="color1">
+    </div>
+    <div>
+        <label>線條寬度：</label>
+        <input type="range" id="range1" max="20" min="2" step="2" value="8">
+        <span id="span1"></span>
+    </div>
+    <div>
+        <label>選擇檔案：</label>
+        <input type="file" id="file1">
+    </div>
+    <canvas id="myCanvas" width="600" height="300"></canvas>
+    <script src="drawing.js"></script>
+</body>
+</html>

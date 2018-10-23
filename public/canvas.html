@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas demo</title>
+    <style>
+    #myCanvas{
+        border: 1px solid green;
+    }
+    </style>
+</head>
+<body>
+    <!-- 預設值是300*150 (圖紙準備)-->
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+</body>
+
+
+<script>
+    //canvas缺點就是在執行在放大時會失真
+    var canvas = document.querySelector('#myCanvas'),//抓取檔案
+        context = canvas.getContext('2d');//canvas.getContext=繪製方法
+    
+        //顏色先執行
+        context.fillStyle='green';
+        context.strokeStyle='purple';
+
+        //畫線
+        context.beginPath();//開始繪製
+        context.moveTo(50,150);//起始點
+        context.lineTo(50,250);//中繼點
+        context.lineTo(200,250);
+        context.closePath();//自動連回起點
+
+        context.stroke();//繪製(線條)
+        context.fill();//填色
+
+
+
+</script>
+</html>

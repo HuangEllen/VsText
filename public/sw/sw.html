@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Service Worker Demo</title>
+</head>
+
+<body>
+    <h2>Service Worker ...</h2>
+
+    <script>
+        console.log(navigator.onLine);
+        //註冊 產生install事件
+        navigator.serviceWorker.register("sw.js")//navigator瀏覽器的物件裡的serviceWorker使用register方法
+            .then(function (reg) {
+                console.log(reg)
+            }, function (err) {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>
